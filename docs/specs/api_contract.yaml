@@ -1,0 +1,33 @@
+openapi: 3.1.0
+info:
+  title: Age Calculator API
+  version: 1.0.0
+paths:
+  /calculate-age:
+    post:
+      operationId: calculate_age
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - birthdate
+              properties:
+                birthdate:
+                  type: string
+                  format: date
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - age
+                properties:
+                  age:
+                    type: integer
+                    description: Calculated age in years
